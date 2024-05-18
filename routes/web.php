@@ -8,8 +8,8 @@ use App\Http\Controllers\EmployeeController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('home', [HomeController::class, 'index'])->name('home');
-Route::get('profile', ProfileController::class)->name('profile');
+Route::get('home', [HomeController::class, 'index'])->middleware("auth")->name('home');
+Route::get('profile', ProfileController::class)->middleware("auth")->name('profile');
 Route::resource('employees', EmployeeController::class);
 
 Route::get('/employees/{id}/edit', [EmployeeController::class, 'edit'])->name('employees.edit');
