@@ -108,3 +108,12 @@ Route::get('download-file/{employeeId}', [
     EmployeeController::class,
     'downloadFile'
 ])->name('employees.downloadFile');
+
+// Get data
+Route::get('getEmployees', [EmployeeController::class, 'getData'])->name('employees.getData');
+
+// download excel
+Route::get('exportExcel', [EmployeeController::class, 'exportExcel'])->name('employees.exportExcel');
+
+// download pdf
+Route::get('exportPdf', [EmployeeController::class, 'exportPdf'])->name('employees.exportPdf');
